@@ -1,5 +1,10 @@
+// Creating map object
+
 // Create the map object with center at the San Francisco airport.
 let map = L.map('mapid').setView([37.5, -122.5], 10);
+
+// Coordinates for each point to be used in the polyline.
+// let laxFlights = laxRoutes;
 
 // Add GeoJSON data.
 let sanFranAirport =
@@ -22,13 +27,21 @@ let sanFranAirport =
 ]};
 
 // Grabbing our GeoJSON data.
-L.geoJSON(sanFranAirport).addTo(map);
+L.geoJson(sanFranAirport, {
+    // We turn each feature into a Marker on the map.
+    pointToLayer: function(feature, latlng) {
+      console.log(feature);
+      return L.marker(latlng)
+      .bindPopup("<h2>" + feature.properties.city + "</h2>");
+    }
+
+  }).addTo(map);
 
 // We create the tile layer that will be the background of our map.
-let graymap = L.tileLayer('https://api.tiles.mapbox.com/v4/mapbox.streets/{z}/{x}/{y}.png?access_token={accessToken}', {
+let graymap = L.tileLayer('https://api.tiles.mapbox.com/v4/dark-v10/{z}/{x}/{y}.png?access_token={accessToken}', {
 	attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery (c) <a href="https://www.mapbox.com/">Mapbox</a>',
 	maxZoom: 18,
-	id: 'mapbox.streets',
+	id: 'dark-v10',
 	accessToken: API_KEY
 });
 
