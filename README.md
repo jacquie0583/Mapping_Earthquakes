@@ -81,9 +81,13 @@ We used the Leaflet library to plot the data on a Mapbox map through an API requ
 </p>
 
 
-#### Add an Additional Map 
+#### Add an Additional Maps 
 
 <p align="center">
    <img width="600" height="400" src="https://github.com/jacquie0583/Mapping_Earthquakes/blob/main/image%2013.png">   
 </p>
 
+Final:
+<p align="center">
+   <img width="600" height="400" src="https://github.com/jacquie0583/Mapping_Earthquakes/blob/main/image%203%20final%20product.png">   
+</p>
