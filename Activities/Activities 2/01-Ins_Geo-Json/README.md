@@ -1,1 +1,0 @@
-# Instructor GeoJSON Overview
